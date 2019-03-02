@@ -1,0 +1,74 @@
+ORIGINAL NUMBERS: 25 34 15 64 79 69 3 2 1 9
+REVERSED NUMBERS: 9 1 2 3 69 79 64 15 34 25
+Check the dump for the exact locations in memory!
+
+SIC SIMULATOR V1.6
+File names are:
+loader                                 
+DEVF1                                  
+DEVF2                                  
+DEVF3                                  
+DEV04                                  
+DEV05                                  
+DEV06                                  
+COMMAND: A(CCEPT file names, R(ENAME 1 or more files
+r
+loader                                 
+DEVF1                                  
+t.obj
+DEVF2                                  
+DEVF3                                  
+DEV04                                  
+DEV05                                  
+DEV06                                  
+File names are:
+loader                                 
+t.obj                                  
+DEVF2                                  
+DEVF3                                  
+DEV04                                  
+DEV05                                  
+DEV06                                  
+COMMAND: A(CCEPT file names, R(ENAME 1 or more files
+
+COMMAND: S(TART, R(UN, E(NTER, D(UMP, H(COUNT, B(KPT, F(ILES, T(RACE, Q(UIT?
+s
+
+COMMAND: S(TART, R(UN, E(NTER, D(UMP, H(COUNT, B(KPT, F(ILES, T(RACE, Q(UIT?
+r
+  1000 INSTRUCTIONS EXECUTED
+P=00003C
+
+COMMAND: S(TART, R(UN, E(NTER, D(UMP, H(COUNT, B(KPT, F(ILES, T(RACE, Q(UIT?
+r
+  1000 INSTRUCTIONS EXECUTED
+P=00005C
+
+COMMAND: S(TART, R(UN, E(NTER, D(UMP, H(COUNT, B(KPT, F(ILES, T(RACE, Q(UIT?
+r
+  1000 INSTRUCTIONS EXECUTED
+P=00005F
+
+COMMAND: S(TART, R(UN, E(NTER, D(UMP, H(COUNT, B(KPT, F(ILES, T(RACE, Q(UIT?
+r
+  1000 INSTRUCTIONS EXECUTED
+P=00014E
+
+COMMAND: S(TART, R(UN, E(NTER, D(UMP, H(COUNT, B(KPT, F(ILES, T(RACE, Q(UIT?
+r
+ATTEMPT TO READ DEVF1 PAST END OF FILE
+P=000053
+
+COMMAND: S(TART, R(UN, E(NTER, D(UMP, H(COUNT, B(KPT, F(ILES, T(RACE, Q(UIT?
+d 100-169
+
+0100 FFFFFD00 00210000 12000019 00002200 <- 25 34
+0110 000F0000 4000004F 00004500 00030000 <- 15 64 79 69 3
+0120 02000001 00000900 00090000 01000002 <- 2 1 9 REVERSE -> 9 1 2
+0130 00000300 00450000 4F000040 00000F00 -> 3 69 79 64 15
+0140 00220000 19000012 03AFBB07 2FB50FAF -> 34 25
+0150 D6032FAF 1900030F 2FA9032F A31D0003
+0160 0F2F9D29 0000372F DC4F0000 FFFFFFFF
+
+COMMAND: S(TART, R(UN, E(NTER, D(UMP, H(COUNT, B(KPT, F(ILES, T(RACE, Q(UIT?
+q

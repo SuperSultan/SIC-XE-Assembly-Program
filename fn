@@ -1,0 +1,417 @@
+#!/bin/sh
+# This is a shell archive (produced by GNU sharutils 4.7).
+# To extract the files from this archive, save it to some FILE, remove
+# everything before the `#!/bin/sh' line above, then type `sh FILE'.
+#
+lock_dir=_sh04388
+# Made on 2019-02-19 15:55 EST by <n01154597@osprey.unfcsd.unf.edu>.
+# Source directory was `/home/97/n01154597/cop3601/proj2/testforreal'.
+#
+# Existing files will *not* be overwritten, unless `-c' is specified.
+#
+# This shar contains:
+# length mode       name
+# ------ ---------- ------------------------------------------
+#    728 -rw-r--r-- doc
+#   2358 -rw-r--r-- sic.log
+#    263 -rw-r--r-- t
+#   1427 -rw-r--r-- t.lst
+#    214 -rw-r--r-- t.obj
+#
+MD5SUM=${MD5SUM-md5sum}
+f=`${MD5SUM} --version | egrep '^md5sum .*(core|text)utils'`
+test -n "${f}" && md5check=true || md5check=false
+${md5check} || \
+  echo 'Note: not verifying md5sums.  Consider installing GNU coreutils.'
+save_IFS="${IFS}"
+IFS="${IFS}:"
+gettext_dir=FAILED
+locale_dir=FAILED
+first_param="$1"
+for dir in $PATH
+do
+  if test "$gettext_dir" = FAILED && test -f $dir/gettext \
+     && ($dir/gettext --version >/dev/null 2>&1)
+  then
+    case `$dir/gettext --version 2>&1 | sed 1q` in
+      *GNU*) gettext_dir=$dir ;;
+    esac
+  fi
+  if test "$locale_dir" = FAILED && test -f $dir/shar \
+     && ($dir/shar --print-text-domain-dir >/dev/null 2>&1)
+  then
+    locale_dir=`$dir/shar --print-text-domain-dir`
+  fi
+done
+IFS="$save_IFS"
+if test "$locale_dir" = FAILED || test "$gettext_dir" = FAILED
+then
+  echo=echo
+else
+  TEXTDOMAINDIR=$locale_dir
+  export TEXTDOMAINDIR
+  TEXTDOMAIN=sharutils
+  export TEXTDOMAIN
+  echo="$gettext_dir/gettext -s"
+fi
+if (echo "testing\c"; echo 1,2,3) | grep c >/dev/null
+then if (echo -n test; echo 1,2,3) | grep n >/dev/null
+     then shar_n= shar_c='
+'
+     else shar_n=-n shar_c= ; fi
+else shar_n= shar_c='\c' ; fi
+f=shar-touch.$$
+st1=200112312359.59
+st2=123123592001.59
+st2tr=123123592001.5 # old SysV 14-char limit
+st3=1231235901
+
+if touch -am -t ${st1} ${f} >/dev/null 2>&1 && \
+   test ! -f ${st1} && test -f ${f}; then
+  shar_touch='touch -am -t $1$2$3$4$5$6.$7 "$8"'
+
+elif touch -am ${st2} ${f} >/dev/null 2>&1 && \
+   test ! -f ${st2} && test ! -f ${st2tr} && test -f ${f}; then
+  shar_touch='touch -am $3$4$5$6$1$2.$7 "$8"'
+
+elif touch -am ${st3} ${f} >/dev/null 2>&1 && \
+   test ! -f ${st3} && test -f ${f}; then
+  shar_touch='touch -am $3$4$5$6$2 "$8"'
+
+else
+  shar_touch=:
+  echo
+  ${echo} 'WARNING: not restoring timestamps.  Consider getting and'
+  ${echo} 'installing GNU `touch'\'', distributed in GNU coreutils...'
+  echo
+fi
+rm -f ${st1} ${st2} ${st2tr} ${st3} ${f}
+#
+if test ! -d ${lock_dir}
+then : ; else ${echo} 'lock directory '${lock_dir}' exists'
+  exit 1
+fi
+if mkdir ${lock_dir}
+then ${echo} 'x - created lock directory `'${lock_dir}\''.'
+else ${echo} 'x - failed to create lock directory `'${lock_dir}\''.'
+  exit 1
+fi
+# ============= doc ==============
+if test -f 'doc' && test "$first_param" != -c; then
+  ${echo} 'x -SKIPPING doc (file already exists)'
+else
+${echo} 'x - extracting doc (text)'
+  sed 's/^X//' << 'SHAR_EOF' > 'doc' &&
+Written By: Afnan Sultan
+Dr. Eggen
+COP3601 - System Software
+X
+Date Last Modified: 2/19/19
+X
+Brief:
+X
+This program is a SICXE program that has 10 numbers stored in an array. 
+It reverses the list of numbers using a loop.
+X
+ORIGINAL NUMBERS: 25 34 15 64 79 69 3 2 1 9
+REVERSED NUMBERS: 9 1 2 3 69 79 64 15 34 25
+X
+d 100-169
+X
+0100 FFFFFD00 00210000 12000019 00002200 <- 25 34
+0110 000F0000 4000004F 00004500 00030000 <- 15 64 79 69 3 
+0120 02000001 00000900 00090000 01000002 <- 2 1 9 REVERSE -> 9 1 2 
+0130 00000300 00450000 4F000040 00000F00 -> 3 69 79 64 15
+0140 00220000 19000012 03AFBB07 2FB50FAF -> 34 25 
+0150 D6032FAF 1900030F 2FA9032F A31D0003
+0160 0F2F9D29 0000372F DC4F0000 FFFFFFFF
+X
+Check the sic.log for more information!
+SHAR_EOF
+  (set 20 19 02 19 15 51 30 'doc'; eval "$shar_touch") &&
+  chmod 0644 'doc'
+if test $? -ne 0
+then ${echo} 'restore of doc failed'
+fi
+  if ${md5check}
+  then (
+       ${MD5SUM} -c >/dev/null 2>&1 || ${echo} 'doc: MD5 check failed'
+       ) << \SHAR_EOF
+300cdcd6f97de074e4c28fd9282a9a7d  doc
+SHAR_EOF
+  else
+test `LC_ALL=C wc -c < 'doc'` -ne 728 && \
+  ${echo} 'restoration warning:  size of doc is not 728'
+  fi
+fi
+# ============= sic.log ==============
+if test -f 'sic.log' && test "$first_param" != -c; then
+  ${echo} 'x -SKIPPING sic.log (file already exists)'
+else
+${echo} 'x - extracting sic.log (text)'
+  sed 's/^X//' << 'SHAR_EOF' > 'sic.log' &&
+ORIGINAL NUMBERS: 25 34 15 64 79 69 3 2 1 9
+REVERSED NUMBERS: 9 1 2 3 69 79 64 15 34 25
+Check the dump for the exact locations in memory!
+X
+SIC SIMULATOR V1.6
+File names are:
+loader                                 
+DEVF1                                  
+DEVF2                                  
+DEVF3                                  
+DEV04                                  
+DEV05                                  
+DEV06                                  
+COMMAND: A(CCEPT file names, R(ENAME 1 or more files
+r
+loader                                 
+DEVF1                                  
+t.obj
+DEVF2                                  
+DEVF3                                  
+DEV04                                  
+DEV05                                  
+DEV06                                  
+File names are:
+loader                                 
+t.obj                                  
+DEVF2                                  
+DEVF3                                  
+DEV04                                  
+DEV05                                  
+DEV06                                  
+COMMAND: A(CCEPT file names, R(ENAME 1 or more files
+X
+COMMAND: S(TART, R(UN, E(NTER, D(UMP, H(COUNT, B(KPT, F(ILES, T(RACE, Q(UIT?
+s
+X
+COMMAND: S(TART, R(UN, E(NTER, D(UMP, H(COUNT, B(KPT, F(ILES, T(RACE, Q(UIT?
+r
+X  1000 INSTRUCTIONS EXECUTED
+P=00003C
+X
+COMMAND: S(TART, R(UN, E(NTER, D(UMP, H(COUNT, B(KPT, F(ILES, T(RACE, Q(UIT?
+r
+X  1000 INSTRUCTIONS EXECUTED
+P=00005C
+X
+COMMAND: S(TART, R(UN, E(NTER, D(UMP, H(COUNT, B(KPT, F(ILES, T(RACE, Q(UIT?
+r
+X  1000 INSTRUCTIONS EXECUTED
+P=00005F
+X
+COMMAND: S(TART, R(UN, E(NTER, D(UMP, H(COUNT, B(KPT, F(ILES, T(RACE, Q(UIT?
+r
+X  1000 INSTRUCTIONS EXECUTED
+P=00014E
+X
+COMMAND: S(TART, R(UN, E(NTER, D(UMP, H(COUNT, B(KPT, F(ILES, T(RACE, Q(UIT?
+r
+ATTEMPT TO READ DEVF1 PAST END OF FILE
+P=000053
+X
+COMMAND: S(TART, R(UN, E(NTER, D(UMP, H(COUNT, B(KPT, F(ILES, T(RACE, Q(UIT?
+d 100-169
+X
+0100 FFFFFD00 00210000 12000019 00002200 <- 25 34
+0110 000F0000 4000004F 00004500 00030000 <- 15 64 79 69 3
+0120 02000001 00000900 00090000 01000002 <- 2 1 9 REVERSE -> 9 1 2
+0130 00000300 00450000 4F000040 00000F00 -> 3 69 79 64 15
+0140 00220000 19000012 03AFBB07 2FB50FAF -> 34 25
+0150 D6032FAF 1900030F 2FA9032F A31D0003
+0160 0F2F9D29 0000372F DC4F0000 FFFFFFFF
+X
+COMMAND: S(TART, R(UN, E(NTER, D(UMP, H(COUNT, B(KPT, F(ILES, T(RACE, Q(UIT?
+q
+SHAR_EOF
+  (set 20 19 02 19 15 48 57 'sic.log'; eval "$shar_touch") &&
+  chmod 0644 'sic.log'
+if test $? -ne 0
+then ${echo} 'restore of sic.log failed'
+fi
+  if ${md5check}
+  then (
+       ${MD5SUM} -c >/dev/null 2>&1 || ${echo} 'sic.log: MD5 check failed'
+       ) << \SHAR_EOF
+049c8fdb888ffc1fab1d0042814ef1b6  sic.log
+SHAR_EOF
+  else
+test `LC_ALL=C wc -c < 'sic.log'` -ne 2358 && \
+  ${echo} 'restoration warning:  size of sic.log is not 2358'
+  fi
+fi
+# ============= t ==============
+if test -f 't' && test "$first_param" != -c; then
+  ${echo} 'x -SKIPPING t (file already exists)'
+else
+${echo} 'x - extracting t (text)'
+  sed 's/^X//' << 'SHAR_EOF' > 't' &&
+X	start 	100
+i	word	30
+j	word	0
+nums	word	18
+X	word	25
+X	word	34
+X	word	15
+X	word	64
+X	word	79
+X	word	69
+X	word	3
+X	word	2
+X	word	1
+X	word	9
+nums2	resw	10
+lop	ldx	i
+X	lda	nums,x
+X	ldx	j
+X	sta	nums2,x
+X	lda	j
+X	add	#3
+X	sta	j
+X	lda	i
+X	sub	#3
+X	sta	i
+X	comp	#0
+X	jgt	lop
+X	rsub
+X	end	lop
+SHAR_EOF
+  (set 20 19 02 08 17 11 24 't'; eval "$shar_touch") &&
+  chmod 0644 't'
+if test $? -ne 0
+then ${echo} 'restore of t failed'
+fi
+  if ${md5check}
+  then (
+       ${MD5SUM} -c >/dev/null 2>&1 || ${echo} 't: MD5 check failed'
+       ) << \SHAR_EOF
+58b9ee653e6f794a440acbf306405f05  t
+SHAR_EOF
+  else
+test `LC_ALL=C wc -c < 't'` -ne 263 && \
+  ${echo} 'restoration warning:  size of t is not 263'
+  fi
+fi
+# ============= t.lst ==============
+if test -f 't.lst' && test "$first_param" != -c; then
+  ${echo} 'x -SKIPPING t.lst (file already exists)'
+else
+${echo} 'x - extracting t.lst (text)'
+  sed 's/^X//' << 'SHAR_EOF' > 't.lst' &&
+*********************************************
+University of North Florida: SIC/XE assembler
+version date 11/12/2002
+account: n01154597; Tue Feb 19 15:34:15 2019
+*********************************************
+ASSEMBLER REPORT
+----------------
+X     Loc   Object Code       Source Code
+X     ---   -----------       -----------
+001- 00100                   	START 	100
+002- 00100 00001E            I	WORD	30
+003- 00103 000000            J	WORD	0
+004- 00106 000012            NUMS	WORD	18
+005- 00109 000019            	WORD	25
+006- 0010C 000022            	WORD	34
+007- 0010F 00000F            	WORD	15
+008- 00112 000040            	WORD	64
+009- 00115 00004F            	WORD	79
+010- 00118 000045            	WORD	69
+011- 0011B 000003            	WORD	3
+012- 0011E 000002            	WORD	2
+013- 00121 000001            	WORD	1
+014- 00124 000009            	WORD	9
+015- 00127                   NUMS2	RESW	10
+016- 00145 072FB8            LOP	LDX	I
+017- 00148 03AFBB            	LDA	NUMS,X
+018- 0014B 072FB5            	LDX	J
+019- 0014E 0FAFD6            	STA	NUMS2,X
+020- 00151 032FAF            	LDA	J
+021- 00154 190003            	ADD	#3
+022- 00157 0F2FA9            	STA	J
+023- 0015A 032FA3            	LDA	I
+024- 0015D 1D0003            	SUB	#3
+025- 00160 0F2F9D            	STA	I
+026- 00163 290000            	COMP	#0
+027- 00166 372FDC            	JGT	LOP
+028- 00169 4F0000            	RSUB
+029- 0016C                   	END	LOP
+SHAR_EOF
+  (set 20 19 02 19 15 34 15 't.lst'; eval "$shar_touch") &&
+  chmod 0644 't.lst'
+if test $? -ne 0
+then ${echo} 'restore of t.lst failed'
+fi
+  if ${md5check}
+  then (
+       ${MD5SUM} -c >/dev/null 2>&1 || ${echo} 't.lst: MD5 check failed'
+       ) << \SHAR_EOF
+8caf57b6f8ff2fe7da616670ad312d20  t.lst
+SHAR_EOF
+  else
+test `LC_ALL=C wc -c < 't.lst'` -ne 1427 && \
+  ${echo} 'restoration warning:  size of t.lst is not 1427'
+  fi
+fi
+# ============= t.obj ==============
+if test -f 't.obj' && test "$first_param" != -c; then
+  ${echo} 'x -SKIPPING t.obj (file already exists)'
+else
+${echo} 'x - extracting t.obj (text)'
+  sed 's/^X//' << 'SHAR_EOF' > 't.obj' &&
+000100
+000000
+00001E
+000000
+000012
+000019
+000022
+00000F
+000040
+00004F
+000045
+000003
+000002
+000001
+000009
+!
+000145
+000145
+072FB8
+03AFBB
+072FB5
+0FAFD6
+032FAF
+190003
+0F2FA9
+032FA3
+1D0003
+0F2F9D
+290000
+372FDC
+4F0000
+!
+SHAR_EOF
+  (set 20 19 02 19 15 34 15 't.obj'; eval "$shar_touch") &&
+  chmod 0644 't.obj'
+if test $? -ne 0
+then ${echo} 'restore of t.obj failed'
+fi
+  if ${md5check}
+  then (
+       ${MD5SUM} -c >/dev/null 2>&1 || ${echo} 't.obj: MD5 check failed'
+       ) << \SHAR_EOF
+44a0c9e4d617a330c2ae7425f55bd3b5  t.obj
+SHAR_EOF
+  else
+test `LC_ALL=C wc -c < 't.obj'` -ne 214 && \
+  ${echo} 'restoration warning:  size of t.obj is not 214'
+  fi
+fi
+if rm -fr ${lock_dir}
+then ${echo} 'x - removed lock directory `'${lock_dir}\''.'
+else ${echo} 'x - failed to remove lock directory `'${lock_dir}\''.'
+  exit 1
+fi
+exit 0

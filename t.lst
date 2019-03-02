@@ -1,0 +1,38 @@
+*********************************************
+University of North Florida: SIC/XE assembler
+version date 11/12/2002
+account: n01154597; Tue Feb 19 15:34:15 2019
+*********************************************
+ASSEMBLER REPORT
+----------------
+     Loc   Object Code       Source Code
+     ---   -----------       -----------
+001- 00100                   	START 	100
+002- 00100 00001E            I	WORD	30
+003- 00103 000000            J	WORD	0
+004- 00106 000012            NUMS	WORD	18
+005- 00109 000019            	WORD	25
+006- 0010C 000022            	WORD	34
+007- 0010F 00000F            	WORD	15
+008- 00112 000040            	WORD	64
+009- 00115 00004F            	WORD	79
+010- 00118 000045            	WORD	69
+011- 0011B 000003            	WORD	3
+012- 0011E 000002            	WORD	2
+013- 00121 000001            	WORD	1
+014- 00124 000009            	WORD	9
+015- 00127                   NUMS2	RESW	10
+016- 00145 072FB8            LOP	LDX	I
+017- 00148 03AFBB            	LDA	NUMS,X
+018- 0014B 072FB5            	LDX	J
+019- 0014E 0FAFD6            	STA	NUMS2,X
+020- 00151 032FAF            	LDA	J
+021- 00154 190003            	ADD	#3
+022- 00157 0F2FA9            	STA	J
+023- 0015A 032FA3            	LDA	I
+024- 0015D 1D0003            	SUB	#3
+025- 00160 0F2F9D            	STA	I
+026- 00163 290000            	COMP	#0
+027- 00166 372FDC            	JGT	LOP
+028- 00169 4F0000            	RSUB
+029- 0016C                   	END	LOP
