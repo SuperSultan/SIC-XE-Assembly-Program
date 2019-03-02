@@ -1,5 +1,5 @@
 	start 	100
-i	word	30
+i	word	33
 j	word	0
 nums	word	18
 	word	25
